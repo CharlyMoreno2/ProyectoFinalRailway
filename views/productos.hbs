@@ -1,0 +1,39 @@
+<style>
+    .title_box {
+        text-align: center;
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+
+    .galleryCards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+</style>
+
+
+<div class="title_box">
+    <h1>Productos</h1>
+    <p>Acá se muestran todos los productos registrados de la pagina</p>
+</div>
+
+<div class="container">
+    {{#if productos}}
+    <div class="galleryCards">
+        {{#each productos}}
+        <div class="card" style="width: 18rem;">
+            <img src="{{foto}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{nombre}}</h5>
+                <p class="card-text">{{descripcion}}</p>
+                <h5>$ {{precio}}</h5>
+                <a href="/carrito/addProduct/{{id}}" class="btn btn-info">AGREGAR AL CARRITO</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h1>No se encontraron productos</h1>
+    {{/if}}
+</div>
